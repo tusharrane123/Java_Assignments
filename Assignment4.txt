@@ -1,0 +1,529 @@
+
+
+class student{
+
+   int rollno;
+   String name,course;
+   float fee;
+
+   student(int rollno,String name,String course)
+   {
+       this.rollno= rollno;
+       this.name= name;
+       this.course = course;
+   }
+
+   student(int rollno,String name,String course,float fee)
+   {
+    this(rollno,name,course); // constructor call 1st nd its reused here
+    this.fee= fee;
+
+   }
+   void show()
+   {
+       System.out.println(rollno +" "+name+" "+course+" "+fee);
+   }
+
+
+}
+
+class StudThis1{
+
+public static void main(String args[]){
+
+student s = new student(101,"teju","Dac");
+student s1 = new student(102,"yamini","Dac",50000f);
+
+s.show();
+s1.show();
+
+}
+
+}
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+ import java.util.Scanner;
+
+class Circle{
+
+    int r;
+    double area;
+    float pi = 3.14F;
+
+void init()
+{
+    System.out.println("Enter radius of circle ");
+   
+}
+void calculateArea()
+{ 
+   Scanner sc = new Scanner(System.in);
+   int r = sc.nextInt();
+  area = pi * r * r;
+
+}
+void display()
+{
+    System.out.println("Area of circle = "+ area);
+}
+}
+class CircleDemo{
+  public static void main(String args[]){
+
+ Circle c = new Circle();
+
+ c.init();
+ c.calculateArea();
+ c.display();
+
+  }
+
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+class MathOpe{
+
+static int add(int a, int b){
+
+    return a+b;
+}
+static int subtract(int a, int b){
+
+return a-b;
+
+}
+static int multiply(int a, int b){
+
+  return a*b;
+}
+static double power(double x, double y){
+
+return Math.pow(x,y);
+
+}
+}
+
+class Demo{
+
+    public static void main(String args[]){
+
+        Scanner sc = new Scanner(System.in);
+
+   System.out.println("enetr value of a & b");
+   
+   int a = sc.nextInt();
+   int b = sc.nextInt();
+
+   int ans = MathOpe.add(a,b);
+   System.out.println("sum = "+ ans);
+    int ans1 = MathOpe.subtract(a,b);
+   System.out.println("subtract = "+ ans1);
+       int ans2 = MathOpe.multiply(a,b);
+   System.out.println("multiplication = "+ ans2);
+
+   System.out.println("enetr value of x & y");
+   double x = sc.nextDouble();
+   double y = sc.nextDouble();
+
+    double ans3 = MathOpe.power(x,y);
+   System.out.println("power = "+ ans3);
+
+   }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class MathOpe{
+
+ static void multiply(int a, int b)
+{
+
+    int mul = a + b;
+    System.out.println("multiplication = "+ mul);
+}
+
+static void multiply(float a, float b, float c)
+{
+    
+    float mul = a * b * c;
+    System.out.println("multiplication = "+ mul);
+
+}
+static void multiply(int arr[])
+{
+    int mul = 1;
+
+    for( int e : arr)
+    {
+         mul = mul * e;
+    }
+     System.out.println("multiplication = "+ mul);
+
+}
+static void multiply(double a, int b)
+{
+
+    double mul = a * b;
+  System.out.println("multiplication = "+ mul);
+
+}
+}
+class Demo{
+
+    public static void main(String args[]){
+
+      MathOpe.multiply(5, 6);
+      MathOpe.multiply(5.6f, 6.7f, 0.8f);
+       int array[] = {4, 5, 6, 7, 8};
+      MathOpe.multiply(array);
+      MathOpe.multiply(10.5, 6);
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+class Person{
+
+    int age;
+    String name;
+
+    Person()
+    {
+        age=18;
+    }
+  
+   void get(int age, String name)
+   {
+       this.age = age;
+       this.name = name;
+   }
+
+    void display()
+    {
+         System.out.println("age & name = "+ age + " " + name);
+ 
+    }
+}
+
+class PersonDemo{
+
+    public static void main(String args[]){
+
+      Person p = new Person();
+      p.get(21, "teju");
+      p.display();
+      p.get(23, "yamini");
+      p.display();
+    }
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+class Employee{
+    
+    private int empNo;
+    private int salary;
+    static double totalSalary;
+    static int totEmp;//initial value 0
+
+
+    Employee(int sal){
+        totEmp++;
+        this.empNo=totEmp;
+        this.salary=sal;
+        totalSalary = totalSalary +sal;
+    }
+
+    public void display(){
+       // System.out.println("Empno : "+this.empNo);
+        System.out.println("Total Emp : "+this.totEmp);
+        System.out.println("Total Sal : "+this.totalSalary);
+    }
+
+}
+
+class EmployeeDemo{
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter sal : ");
+        int sal = sc.nextInt();
+        Employee e1 = new Employee(sal);// will set the values of obj 
+
+        System.out.print("Enter sal : ");
+        sal = sc.nextInt();
+        Employee e2 = new Employee(sal);// will set the values of obj 
+        
+        System.out.println("\n\nNo of Employees and their total salaries : ");
+        e1.display();
+        //e2.display();
+
+    }
+
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+	class Product
+	{
+		int pid,quantity;
+		float price;
+		
+		Product(int pid,int quantity,float price)
+		{
+			this.pid=pid;
+			this.quantity=quantity;
+			this.price=price;
+		}
+		
+		static float total(Product []p)
+		{
+			Product test;
+			float sum=0;
+			for(int i=0; i<p.length; i++)
+			{
+				test=p[i];
+				sum=sum+(test.quantity*test.price);
+			}
+			return sum;
+		}
+	}
+
+	class ProductDemo
+	{
+		public static void main(String[] args)
+		{	
+			Product p1=new Product(1,2,200);
+			Product p2=new Product(2,3,100);
+			Product p3=new Product(3,2,500);
+			Product p4=new Product(4,2,100);
+			Product p5=new Product(5,3,300);
+			Product p[]=new Product[]{p1,p2,p3,p4,p5};
+			Product test;
+			float price[]=new float[p.length];
+			
+			
+			for(int i=0; i<p.length; i++)
+			{
+				test=p[i];
+				price[i]=test.price;
+			}
+			
+			float max=0;
+			for(int i=0; i<price.length; i++)
+			{
+				if(max<price[i])
+				{
+					max=max+price[i];
+					price[i]=max-price[i];
+					max=max-price[i];
+				}
+			}
+			System.out.println("highest price: "+max);
+
+			for(int i=0; i<p.length; i++)
+			{
+				test=p[i];
+				if(max==test.price)
+				{
+					System.out.println("pid of product with highest price: "+test.pid);
+				}
+			}
+			
+			float T=Product.total(p);
+			System.out.println("Total amount spent on the product: "+T);
+			
+		}
+	}		
+		
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+class Student{
+
+ public static void main(String args[]){
+
+ 
+ Scanner sc = new Scanner(System.in);
+
+    int rollno[] = new int[5];
+    String name[] = new String[5];
+    int age[] = new int[5];
+    int Score[] = new int[5];
+    
+    for(int i=0; i<5; i++)
+    {
+    System.out.println("Enter student record details : rollno,name,age and Score:");
+      rollno[i]=sc.nextInt();
+      name[i] = sc.next();
+      age[i]= sc.nextInt();
+      Score[i] = sc.nextInt();
+    }
+
+         System.out.println("Score of student bet [0-50] :");  
+        for(int i=0; i<5; i++)
+        {
+         if(Score[i]<=50)
+         {
+         System.out.println("rollno = "+ rollno[i]); 
+         System.out.println("name = "+ name[i]);  
+         System.out.println("age = "+ age[i]);  
+         System.out.println("Score = "+ Score[i]);  
+
+         }
+        }
+         System.out.println("Score of student bet [50-65] :");  
+        for(int i=0; i<5; i++)
+        {
+         if(Score[i]>50 && Score[i]<=65)
+         {
+         System.out.println("rollno = "+ rollno[i]); 
+         System.out.println("name = "+ name[i]);  
+         System.out.println("age = "+ age[i]);  
+         System.out.println("Score = "+ Score[i]);  
+
+         }
+        }
+        System.out.println("Score of student bet [65-80] :");  
+        for(int i=0; i<5; i++)
+        {
+         if(Score[i]>65 && Score[i]<=80)
+         {
+         System.out.println("rollno = "+ rollno[i]); 
+         System.out.println("name = "+ name[i]);  
+         System.out.println("age = "+ age[i]);  
+         System.out.println("Score = "+ Score[i]);  
+
+         }
+        }
+        System.out.println("Score of student bet [80-100] :");  
+        for(int i=0; i<5; i++)
+        {
+         if(Score[i]>80 && Score[i]<=100)
+          {
+         System.out.println("rollno = "+ rollno[i]); 
+         System.out.println("name = "+ name[i]);  
+         System.out.println("age = "+ age[i]);  
+         System.out.println("Score = "+ Score[i]);  
+
+         }
+        }
+
+ 
+    }
+
+}
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+class Demo{
+    Demo()
+    {
+        //this(5,6);
+        System.out.println("first constructor call..");
+    }
+   Demo(int i, int j)
+   {
+       this();
+       int sum = i + j;
+    System.out.println("sum ="+ sum);
+
+   }
+
+}
+
+class Example extends Demo{
+
+     Example()
+     {
+         this(2,3);
+      System.out.println("baseclass constructor call..");
+    }
+   Example(int i, int j)
+   {
+       super(5,6); // if you not declare bydefault it is call on compiler
+       int mul = i * j;
+    System.out.println("mul ="+ mul);
+
+   }
+
+}
+
+class demoex{
+
+    public static void main(String args[]){
+    
+    Example e = new Example();
+
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+	class Tile
+	{
+		int tlength,twidth;
+		
+		Tile(int tlength,int twidth)
+		{
+			this.tlength=tlength;
+			this.twidth=twidth;
+		}
+		
+		int ttiles(int flength,int fwidth)
+		{
+			int tarea=tlength*twidth;
+			int farea=flength*fwidth;
+			int ttiles=(farea/tarea);
+			return ttiles;
+		}
+	}
+
+	class Floor
+	{
+		int length,width,total;
+		public static void main(String[] args)
+		{	
+			Scanner scan=new Scanner(System.in);
+			Floor f=new Floor();
+			
+			System.out.println("Enter length of the tile: ");
+			f.length=scan.nextInt();
+			System.out.println("Enter width of the tile: ");
+			f.width=scan.nextInt();
+			Tile t=new Tile(f.length,f.width);
+			
+			
+			System.out.println("\n Enter length of the floor: ");
+			f.length=scan.nextInt();
+			System.out.println("Enter width of the floor: ");
+			f.width=scan.nextInt();
+			
+			f.total=t.ttiles(f.length,f.width);
+			System.out.println("\n Total tiles needed: "+f.total);
+			
+		}
+	}
+	
+
+		
+		
+		
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
